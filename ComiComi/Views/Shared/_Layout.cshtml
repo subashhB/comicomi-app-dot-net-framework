@@ -7,12 +7,13 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ComiComi.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"/>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3 text-light">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ComiComi</a>
+                <a class="navbar-brand" asp-controller="Comic" asp-action="Index">ComiComi</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -20,12 +21,33 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link" asp-area="" asp-controller="comic" asp-action="index">Comics</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="bi bi-gear"></i> Management
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" asp-controller="Author" asp-action="Index"><i class="bi bi-pen"></i>Author</a>
+                                    <a class="dropdown-item" asp-controller="Artist" asp-action="Index"><i class="bi bi-brush"></i>Artist</a>
+                                    <a class="dropdown-item" asp-controller="Publisher" asp-action="Index"><i class="bi bi-book"></i>Publisher</a>
+                                </div>
+                            </li>
+                        }
                     </ul>
+                        
+                        
+
+                    <form class="d-flex" asp-controller="Comic" asp-action="Filter" style="padding-right: 25px;">
+                        <input name="searchString" type="text" class="form-control me-1" placeholder="Search"/>
+                        <button class="btn btn-outline-light my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
+                    </form>
+                    <ul class="navbar-nav">                        
+                            @await Component.InvokeAsync("CartVC")                        
+                    </ul>
+                    <partial name="_Identity.cshtml">
                 </div>
             </div>
         </nav>
@@ -38,7 +60,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2022 - ComiComi - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2022 - ComiComi
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

@@ -1,0 +1,37 @@
+﻿@model ComiComi.Models.Publisher
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<div class="row">
+    <div class="col-md-6 offset-3">
+            <h1>Create</h1>
+            <h4>Publisher</h4>
+        <hr />
+    </div>
+    <div class="col-md-6 offset-3">
+        <form asp-action="Create" asp-controller="Publisher" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PublisherName" class="control-label"></label>
+                <input asp-for="PublisherName" class="form-control" />
+                <span asp-validation-for="PublisherName" class="text-danger"></span>
+            </div>
+            
+            <br />
+            <div class="form-group">                
+                <input type="submit" value="Create" class="btn btn-outline-primary float-end" />
+                <a asp-action="Index" class="btn btn-outline-secondary">Back to List</a>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    
+</div>
+
+

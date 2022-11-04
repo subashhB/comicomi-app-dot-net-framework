@@ -1,0 +1,78 @@
+﻿@model IEnumerable<ComiComi.Models.Comic>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3 col-6">
+            <div class="card mb-3" style="max-width: 540px">
+                <div class="row g-0">
+                    <div class="col-md-12">
+                        <div class="card  bg-dark text-light">
+                            <img src="@item.CoverPhotoURL" class="card-img" alt="Cover Photo of @item.Title">
+                            <div class="card-img-overlay" >
+                                @if(User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                                {
+                                    <a class="text-white float-end" asp-action="Edit" asp-route-id="@item.Id" style="position:relative"><i class="bi bi-pencil-square"></i></a>
+                                }  
+                                <h5 class="card-title"><span class="badge rounded-pill text-light bg-dark box-shadow">@item.Genre</span></h5>
+                              <p class="card-text"><span class="badge rounded-pill text-light bg-info box-shadow">@item.Serializaton</span></p>
+                              <p class="card-text"><span class="badge rounded-pill text-light bg-warning box-shadow">@item.Day</span></p>
+                              
+                            </div>
+                            <div class="col-md-12">
+                                <div class="card-body" style="transform:rotate(0)">
+                                  <h5 class="card-title">@item.Title</h5>                                    
+                                  <p class="card-text text-wrap">@item.Description</p>
+                                  <p class="card-text"><small class="text-muted">@item.Status</small></p>
+                                  <a class="stretched-link" asp-controller="Comic" asp-action="Details" asp-route-id="@item.Id"></a>
+                                </div>
+                              </div>
+                          </div>
+                        <div class="col-md-12">
+                            <div class="card-footer d-flex justify-content-between">
+                                <p class="card-text">
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+                                        <a class="btn btn-success text-white"  data-bs-toggle="modal" data-bs-target="#volume-@item.Id" asp-route-id="@item.Id" aria-labelledby="exampleModalLabel" aria-hidden="true" dir="ltr"><i class="bi bi-cart-plus"></i> Add to Cart (Price @item.Price.ToString("c"))</a>
+                                    }
+                                    else{
+                                     <a class="btn btn-success text-white"  asp-controller="Account" asp-action="Login"><i class="bi bi-cart-plus"></i> Add to Cart (Price @item.Price.ToString("c"))</a>
+                                    }
+                                    <div class="modal fade" id="volume-@item.Id">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h3 class="modal-title">Comic Volume</h3>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form action="EditVolume">
+                                                        <label class="control-label">Volume</label>
+                                                        <input type="hidden" name="comicId">
+                                                        <input name="volume" class="form-control" />
+                                                        <div class="form-group">
+                                                            <input type="submit" value="Submit" asp-controller="Order" asp-route-id="@item.Id" asp-action="AddItemToShoppingCart" class="btn btn-outline-primary float-end" />
+                                                            <a asp-action="Index" class="btn btn-outline-secondary">Comics</a>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                        
+                                            </div>
+                                        </div>
+                                    </div>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    }
+</div>
+
+
+
+@await Html.PartialAsync("_CreateItem","Comic")
