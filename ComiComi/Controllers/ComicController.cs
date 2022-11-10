@@ -34,7 +34,9 @@ namespace ComiComi.Controllers
                     n.Artist.ArtistName.Contains(searchString, StringComparison.OrdinalIgnoreCase) ||
                     n.Author.AuthorName.Contains(searchString, StringComparison.OrdinalIgnoreCase) ||
                     n.Publisher.PublisherName.Contains(searchString, StringComparison.OrdinalIgnoreCase)).ToList();
-                return View("Index",filteredResult);
+                if (filteredResult.Count < 1)
+                    return View("NotFound");
+                return View("Index",filteredResult); 
             }
             return View("Index",data);
         }
