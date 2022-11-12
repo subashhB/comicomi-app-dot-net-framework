@@ -114,7 +114,7 @@ namespace ComiComi.Data
                         new Comic()
                         {
                             Title="One Piece",
-                            CoverPhotoURL="https://drive.google.com/uc?id=1t48U_JLzppAlQA9uAs8f2ievmqh4-q5S",
+                            CoverPhotoURL="https://m.media-amazon.com/images/I/518KKkmd1fL._AC_SY780_.jpg",
                             Description="The series focuses on Monkey D. Luffy, a young man made of rubber, who, inspired by his childhood idol, the powerful pirate Red-Haired Shanks, sets off on a journey from the East Blue Sea to find the mythical treasure, the One Piece, and proclaim himself the King of the Pirates.",
                             Price=800,
                             UploadDate=DateTime.Now,
@@ -130,7 +130,7 @@ namespace ComiComi.Data
                         new Comic()
                         {
                             Title="Spider-Man",
-                            CoverPhotoURL="https://drive.google.com/uc?id=1mARR3YDbslMG4AkSGX5ZaZmNp1f1S0-x",
+                            CoverPhotoURL="https://i.pinimg.com/originals/ea/39/35/ea3935169ced0756449bac6b4cfe9efb.jpg",
                             Description="American teenager Peter Parker, a poor sickly orphan, is bitten by a radioactive spider. As a result of the bite, he gains superhuman strength, speed, and agility, along with the ability to cling to walls, turning him into Spider-Man.",
                             Price=250,
                             UploadDate=DateTime.Now,
@@ -146,7 +146,7 @@ namespace ComiComi.Data
                         new Comic()
                         {
                             Title="Naruto",
-                            CoverPhotoURL="https://drive.google.com/uc?id=1mPHnBNprDgsPvUnxRjnPHNeTfr6Xfjil",
+                            CoverPhotoURL="https://pm1.narvii.com/6106/fd2d7db8b7983348bcbeba05fe52a5d308e8fb2b_hq.jpg",
                             Description="It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village. The story is told in two parts – the first set in Naruto's pre-teen years, and the second in his teens.",
                             Price=720,
                             UploadDate=DateTime.Now,
@@ -162,7 +162,7 @@ namespace ComiComi.Data
                         new Comic()
                         {
                             Title="Monogatari",
-                            CoverPhotoURL="https://drive.google.com/uc?id=1IdH9m19sGIpP14EuUsyzmTK8HPlV0eip",
+                            CoverPhotoURL="https://m.media-amazon.com/images/I/417sjvU-HoL._AC_SY780_.jpg",
                             Description="The plot centers on Koyomi Araragi, a third-year high school student who survives a vampire attack and finds himself helping people involved with a variety of apparitions, deities, ghosts, beasts, spirits, and other supernatural phenomena, which often serve as proxies for their emotional and mental issues.",
                             Price=540,
                             UploadDate=DateTime.Now,
@@ -178,7 +178,7 @@ namespace ComiComi.Data
                         new Comic()
                         {
                             Title="Kara no Kyoukai: The Garder of Sinners",
-                            CoverPhotoURL="https://drive.google.com/uc?id=1hH9qTHt6zqVplGi8E_ySPX8Y9TF98VwT",
+                            CoverPhotoURL="https://static.wikia.nocookie.net/sonako/images/d/d0/Vol1-cover.jpg/revision/latest?cb=20151231160738",
                             Description="Set in Japan predominantly during the late 1990s, The Garden of Sinners follows the story of Shiki Ryougi, a teenage girl raised as a demon hunter who acquired the \"Mystic Eyes of Death Perception\" after surviving a fatal accident.",
                             Price=430,
                             UploadDate=DateTime.Now,
