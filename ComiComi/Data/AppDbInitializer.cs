@@ -178,7 +178,7 @@ namespace ComiComi.Data
                         new Comic()
                         {
                             Title="Kara no Kyoukai: The Garder of Sinners",
-                            CoverPhotoURL="https://static.wikia.nocookie.net/sonako/images/d/d0/Vol1-cover.jpg/revision/latest?cb=20151231160738",
+                            CoverPhotoURL="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1327541639i/3511225.jpg",
                             Description="Set in Japan predominantly during the late 1990s, The Garden of Sinners follows the story of Shiki Ryougi, a teenage girl raised as a demon hunter who acquired the \"Mystic Eyes of Death Perception\" after surviving a fatal accident.",
                             Price=430,
                             UploadDate=DateTime.Now,
