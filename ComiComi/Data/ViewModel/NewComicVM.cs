@@ -18,7 +18,7 @@ namespace ComiComi.Models
         public string CoverPhotoURL{ get; set; }
 
         [Display(Name = "Desciption")]
-        [Required(ErrorMessage = "Name is Required")]
+        [Required(ErrorMessage = "Desciption is Required")]
         public string Description { get; set; }
 
         [Display(Name = "Price per Volume")]

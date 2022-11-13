@@ -121,5 +121,15 @@ namespace ComiComi.Controllers
 
 
 
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirm(int id)
+        {
+            var comicDetails = await _service.GetByIdAsync(id);
+            if (comicDetails == null) return View("NotFound");
+            await _service.DeleteAsync(id);
+            return RedirectToAction(nameof(Index));
+        }
+
+
     }
 }

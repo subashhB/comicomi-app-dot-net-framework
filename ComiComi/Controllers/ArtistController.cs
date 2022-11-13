@@ -44,7 +44,7 @@ namespace ComiComi.Controllers
         public async Task<IActionResult> Edit(int id)
         {
             var artistDetails = await _service.GetByIdAsync(id);
-            if (artistDetails != null) return View("NotFound");
+            if (artistDetails == null) return View("NotFound");
             return View(artistDetails);
         }
 
@@ -59,7 +59,7 @@ namespace ComiComi.Controllers
         public async Task<IActionResult> Delete(int id)
         {
             var artistDetails = await _service.GetByIdAsync(id);
-            if (artistDetails != null) return View("NotFound");
+            if (artistDetails == null) return View("NotFound");
             return View(artistDetails);
         }
 
@@ -67,7 +67,7 @@ namespace ComiComi.Controllers
         public async Task<IActionResult> DeleteConfirm(int id)
         {
             var artistDetails = await _service.GetByIdAsync(id);
-            if (artistDetails != null) return View("NotFound");
+            if (artistDetails == null) return View("NotFound");
             await _service.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
         }
